@@ -8,7 +8,7 @@ Unit testing in Coq, at compile time.
 
     Definition test_plus : List.map_pair plus
       [(0, 0); (0, 3); (4, 0); (4, 3)] =
-      [ 0; 3; 4; 7] :=
+      [0; 3; 4; 7] :=
       eq_refl.
 
 ## Install
