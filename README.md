@@ -35,11 +35,11 @@ Add:
 
 at the beginning of your source files. The idea is to consider tests as specifications, and to run express them as types. For example:
 
-    Definition test_pred : pred 12 = 11 : eq_refl.
+    Definition test_pred : pred 12 = 11 := eq_refl.
 
 will force the type checker of Coq to evaluate `pred 12` and make sure its value is `11`. Do run many tests we usually take a list:
 
-    Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] : eq_refl.
+    Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] := eq_refl.
 
 For functions with multiple arguments, CUnit provides generalized version of `List.map`.
 
