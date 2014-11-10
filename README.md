@@ -37,7 +37,7 @@ at the beginning of your source files. The idea is to consider tests as specific
 
     Definition test_pred : pred 12 = 11 : eq_refl.
 
-will force the type checker of Coq to evaluate `pred 12` and make its value is `11`. Do run many tests we usually use a list:
+will force the type checker of Coq to evaluate `pred 12` and make sure its value is `11`. Do run many tests we usually take a list:
 
     Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] : eq_refl.
 
