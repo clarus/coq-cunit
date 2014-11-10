@@ -41,7 +41,7 @@ will force the type checker of Coq to evaluate `pred 12` and make sure its value
 
     Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] := eq_refl.
 
-For functions with multiple arguments, CUnit provides generalized versions of `List.map`, like `map_pair`.
+For functions with multiple arguments, CUnit provides generalized versions of `List.map`, like `List.map_pair`.
 
 ## Reference
 ### List
