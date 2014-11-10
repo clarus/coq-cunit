@@ -1,5 +1,15 @@
 # ![Logo](https://raw.githubusercontent.com/clarus/icons/master/shield-48.png) CUnit
-Unit testing for Coq.
+Unit testing in Coq, at compile time.
+
+    Require Import Coq.Lists.List.
+    Require Import CUnit.All.
+
+    Import ListDefinitions.
+
+    Definition test_plus : List.map_pair plus
+      [(0, 0); (0; 3); (4; 0); (4; 3)] =
+      [ 0; 3; 4; 7] :=
+      eq_refl.
 
 ## Install
 ### With OPAM
@@ -23,7 +33,15 @@ Add:
 
     Require Import CUnit.All.
 
-at the beginning of your source files.
+at the beginning of your source files. The idea is to consider tests as specifications, and to run express them as types. For example:
+
+    Definition test_pred : pred 12 = 11 : eq_refl.
+
+will force the type checker of Coq to evaluate `pred 12` and make its value is `11`. Do run many tests we usually use a list:
+
+    Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] : eq_refl.
+
+For functions with multiple arguments, CUnit provides generalized version of `List.map`.
 
 ## Reference
 ### List
