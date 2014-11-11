@@ -33,7 +33,9 @@ Add:
 
     Require Import CUnit.All.
 
-at the beginning of your source files. The idea is to consider tests as specifications, and to run express them as types. For example:
+at the beginning of your source files.
+
+The idea is to consider tests as specifications, and to express them as types. For example:
 
     Definition test_pred : pred 12 = 11 := eq_refl.
 
