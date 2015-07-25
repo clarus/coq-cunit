@@ -1,5 +1,5 @@
 # ![Logo](https://raw.githubusercontent.com/clarus/icons/master/shield-48.png) CUnit
-Unit testing in Coq, at compile time.
+Convenience functions for unit testing in Coq.
 
     Require Import Coq.Lists.List.
     Require Import CUnit.All.
@@ -13,9 +13,9 @@ Unit testing in Coq, at compile time.
 
 ## Install
 ### With OPAM
-Add the Coq repository (you may prefer the [unstable](https://github.com/coq/repo-unstable) repository to get the latest version):
+Install the [Coq repository](http://coq.io/opam/):
 
-    opam repo add coq-stable https://github.com/coq/repo-stable.git
+    opam repo add coq-released https://coq.inria.fr/opam/released
 
 and run:
 
@@ -28,25 +28,8 @@ Run:
     make
     make install
 
-## Use
-Add:
-
-    Require Import CUnit.All.
-
-at the beginning of your source files.
-
-The idea is to consider tests as specifications, and to express them as types. For example:
-
-    Definition test_pred : pred 12 = 11 := eq_refl.
-
-will force the type checker of Coq to evaluate `pred 12` and make sure its value is `11`. Do run many tests we usually take a list:
-
-    Definition test_pred : List.map pred [0; 1; 2; 12] = [0; 0; 1; 11] := eq_refl.
-
-For functions with multiple arguments, CUnit provides generalized versions of `List.map`, like `List.map_pair`.
-
 ## Reference
 ### List
-* `map_pair {A B C : Type} (f : A -> B -> C) (l : list (A * B)) : list C`
-* `map_triple {A B C D : Type} (f : A -> B -> C -> D) (l : list (A * B * C)) : list D`
-* `map_quad {A B C D E : Type} (f : A -> B -> C -> D -> E) (l : list (A * B * C * D)) : list E`
+* `List.map_pair {A B C} (f : A -> B -> C) (l : list (A * B)) : list C`
+* `List.map_triple {A B C D} (f : A -> B -> C -> D) (l : list (A * B * C)) : list D`
+* `List.map_quad {A B C D E} (f : A -> B -> C -> D -> E) (l : list (A * B * C * D)) : list E`
