@@ -19,7 +19,7 @@ Install the [Coq repository](http://coq.io/opam/):
 
 and run:
 
-    opam install coq:cunit
+    opam install coq-cunit
 
 ### From the sources
 Run:
